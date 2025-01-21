@@ -2517,7 +2517,7 @@ figcaption a {
 
 .gh-archive-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
     gap: var(--grid-gap);
     grid-column: 1 / -1;
     /* padding-bottom: clamp(40px, 2.73vw + 29.09px, 64px); */
