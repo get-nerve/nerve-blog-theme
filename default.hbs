@@ -46,9 +46,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.3/tocbot.css">
 
     <style>
-.gh-content {
-  position: relative;
-}
+    .gh-content {
+      position: relative;
+    }
+
+    .gh-toc {
+      display: none;
+    }
 
     .gh-toc > .toc-list {
       position: relative;
@@ -64,7 +68,11 @@
       text-decoration: none;
     }
 
-    @media (min-width: 1300px) {
+    .is-collapsible {
+      transition: none;
+    }
+
+    @media (min-width: 1550px) {
       .gh-sidebar {
         position: absolute;
         top: 0;
@@ -75,6 +83,7 @@
       }
 
       .gh-toc {
+        display: block;
         position: sticky; /* On larger screens, TOC will stay in the same spot on the page */
         top: 4vmin;
       }
