@@ -2,29 +2,32 @@
     <div class="gh-navigation-inner gh-inner">
 
         <div class="gh-navigation-brand">
-            <a class="gh-navigation-logo is-title" href="https://get-nerve.com">
-                {{#if @site.logo}}
-                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+            <span>
+              <a class="gh-navigation-logo is-title" href="https://get-nerve.com">
+                  {{#if @site.logo}}
+                      <img src="{{@site.logo}}" alt="{{@site.title}}">
+                  {{else}}
+                      {{@site.title}}
+                  {{/if}}
+              </a>
+              <span class="gh-navigation-subscript">
+                {{#match pTag.name "journal"}}
+                  Journal
+                {{else match pTag.name "ideas"}}
+                  Ideas
+                {{else match pTag.name "learning"}}
+                  Learning
                 {{else}}
-                    {{@site.title}}
-                {{/if}}
-            </a>
-            {{> "search-toggle"}}
-            <button class="gh-burger gh-icon-button" aria-label="Menu">
-                {{> "icons/burger"}}
-                {{> "icons/close"}}
-            </button>
-            <span class="gh-navigation-subscript">
-              {{#match pTag.name "journal"}}
-                Journal
-              {{else match pTag.name "ideas"}}
-                Ideas
-              {{else match pTag.name "learning"}}
-                Learning
-              {{else}}
-                Blog
-              {{/match}}
+                  Blog
+                {{/match}}
+              </span>
             </span>
+            {{navigation}}
+            <!-- {{> "search-toggle"}} -->
+            <!-- <button class="gh-burger gh-icon-button" aria-label="Menu"> -->
+            <!--     {{> "icons/burger"}} -->
+            <!--     {{> "icons/close"}} -->
+            <!-- </button> -->
         </div>
 
         <nav class="gh-navigation-menu">
