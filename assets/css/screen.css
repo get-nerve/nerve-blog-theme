@@ -165,7 +165,7 @@ a:hover {
     line-height: 1;
     color: var(--color-white);
     cursor: pointer;
-    background-color: var(--ghost-accent-color);
+    background-color: black;
     border: 0;
     border-radius: 100px;
 }
@@ -466,6 +466,7 @@ button.gh-form-input {
     letter-spacing: -0.015em;
     white-space: nowrap;
     display: inline-block;
+    border-bottom: 0px;
 }
 
 .gh-navigation-subscript {
