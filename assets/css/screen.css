@@ -55,7 +55,7 @@ production stylesheet in assets/built/screen.css
     --color-lighter-gray: rgb(0 0 0 / 0.05);
     --color-light-gray: #e6e6e6;
     --color-mid-gray: #ccc;
-    --color-dark-gray: #444;
+    --color-dark-gray: rgb(1, 1, 1);
     --color-darker-gray: #15171a;
     --color-black: #000;
     --color-primary-text: var(--color-darker-gray);
@@ -67,6 +67,7 @@ production stylesheet in assets/built/screen.css
     --font-serif-alt: Georgia, Times, serif;
     --font-mono: "JetBrains Mono", Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
     --container-width: 1320px;
+    --content-width: 1100px;
     --container-gap: clamp(24px, 1.7032rem + 1.9355vw, 48px);
     --grid-gap: 42px;
 }
@@ -145,6 +146,7 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: var(--color-darker-gray);
     text-decoration: none;
+    border-bottom: solid 1px rgb(220, 223, 228);
 }
 
 a:hover {
@@ -420,8 +422,24 @@ button.gh-form-input {
     height: 100px;
     font-size: 1.5rem;
     font-weight: 550;
-    background-color: var(--background-color);
     color: var(--color-darker-gray);
+    background-size: cover;
+}
+
+.gh-navigation-bg {
+    background-image: url("https://lace-demo-service-icons.nyc3.cdn.digitaloceanspaces.com/blog_header_red.png");
+}
+
+.gh-navigation-bg-journal {
+  background-image: url("https://lace-demo-service-icons.nyc3.cdn.digitaloceanspaces.com/blog_header_orange.png");
+}
+
+.gh-navigation-bg-learning {
+  background-image: url("https://lace-demo-service-icons.nyc3.cdn.digitaloceanspaces.com/blog_header_green.png");
+}
+
+.gh-navigation-bg-ideas {
+  background-image: url("https://lace-demo-service-icons.nyc3.cdn.digitaloceanspaces.com/blog_header_blue.png");
 }
 
 .gh-navigation :is(.gh-navigation-logo, a:not(.gh-button), .gh-icon-button) {
@@ -447,6 +465,18 @@ button.gh-form-input {
     font-weight: 725;
     letter-spacing: -0.015em;
     white-space: nowrap;
+    display: inline-block;
+}
+
+.gh-navigation-subscript {
+  position: relative;
+  font-family: var(--gh-font-heading, var(--font-sans));
+  font-weight: 700;
+  margin-left: 12px;
+  font-size: 1.8rem;
+  color: white;
+  position: relative;
+  top: -4px;
 }
 
 .gh-navigation-logo img {
@@ -486,7 +516,11 @@ button.gh-form-input {
     gap: 24px;
     align-items: center;
     justify-content: flex-end;
-    background-color: var(--background-color);
+    color: white;
+}
+
+.gh-navigation-actions a {
+  border-bottom-width: 0px;
 }
 
 .gh-navigation.has-accent-color .gh-navigation-actions {
@@ -935,7 +969,8 @@ Search                         LOGO                    Login Subscribe
 
 .gh-card-title {
     font-size: calc(1.9rem * var(--factor, 1));
-    font-weight: 725;
+    font-weight: 500;
+    margin-bottom: 16px;
     letter-spacing: -0.014em;
     line-height: 1.3;
 }
@@ -1582,7 +1617,7 @@ Search                         LOGO                    Login Subscribe
 
 .gh-navigation + .gh-container .gh-container-title,
 :is(.paged, .tag-template, .author-template) .gh-container:not(.has-sidebar) .gh-container-title {
-    display: none;
+    /* display: none; */
 }
 
 .gh-more {
@@ -1646,7 +1681,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-container.is-list.no-image:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
-    grid-column: 4 / span 10;
+    grid-column: 2 / span 14;
 }
 
 .gh-header:is(.is-highlight, .is-magazine) ~ .gh-container.is-grid:not(.has-sidebar) :is(.gh-container-title, .gh-main, .gh-more) {
@@ -1668,18 +1703,16 @@ Search                         LOGO                    Login Subscribe
 /* ---------------------------------------------------------- */
 
 .gh-container-title {
-    grid-column: 1 / -1;
-    margin-bottom: calc(var(--grid-gap) / 2);
-    padding-bottom: 12px;
-    font-size: 1.2rem;
-    font-weight: 550;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--color-border);
+  font-size: calc(clamp(3.4rem, 1.36vw + 2.85rem, 4.6rem) * var(--factor, 1));
+  line-height: 1.1;
+  margin-top: 40px;
+  margin-bottom: 120px;
+  font-weight: 400;
+  letter-spacing: -0.022em;
 }
 
 .gh-container:not(:has(.gh-card)) .gh-container-title {
-    display: none;
+    /* display: none; */
 }
 
 .gh-container .gh-feed {
@@ -1700,6 +1733,7 @@ Search                         LOGO                    Login Subscribe
 }
 
 .gh-container.is-list .gh-card-link {
+    border-bottom: 0px;
     flex-direction: row;
     align-items: center;
     gap: 24px;
@@ -1980,6 +2014,9 @@ Search                         LOGO                    Login Subscribe
 .gh-article-title {
     font-size: calc(clamp(3.4rem, 1.36vw + 2.85rem, 4.6rem) * var(--factor, 1));
     line-height: 1.1;
+    margin-top: 40px;
+    margin-bottom: 120px;
+    font-weight: 400;
     letter-spacing: -0.022em;
 }
 
@@ -1999,52 +2036,17 @@ Search                         LOGO                    Login Subscribe
     margin-left: 6px;
 }
 
-.gh-article-author-image {
-    display: flex;
-    margin-right: 8px;
-}
-
-.gh-article-author-image a {
-    position: relative;
-    margin: 0 -8px;
-    width: 56px;
-    height: 56px;
-    overflow: hidden;
-    background-color: var(--color-light-gray);
-    border-radius: 50%;
-    border: 3px solid var(--background-color);
-}
-
-.gh-article-author-image a:first-child {
-    z-index: 10;
-}
-
-.gh-article-author-image a:nth-child(2) {
-    z-index: 9;
-}
-
-.gh-article-author-image a:nth-child(3) {
-    z-index: 8;
-}
-
-.gh-article-author-image :is(img, svg) {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .gh-article-meta-wrapper {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.gh-article-author-name {
+.gh-article-author-heading {
+    font-weight: 500;
     font-size: 1.6rem;
-    font-weight: 650;
     letter-spacing: -0.013em;
+    color: var(--color-dark-gray);
 }
 
 .gh-article-meta-content {
@@ -2159,7 +2161,7 @@ unless a heading is the very first element in the post content */
 }
 
 .gh-content a {
-    color: var(--ghost-accent-color);
+    /* color: var(--ghost-accent-color); */
     text-decoration: underline;
 }
 
@@ -2515,8 +2517,8 @@ figcaption a {
     grid-template-columns: 1fr 1fr;
     gap: var(--grid-gap);
     grid-column: 1 / -1;
-    padding-bottom: clamp(40px, 2.73vw + 29.09px, 64px);
-    border-bottom: 1px solid var(--color-border);
+    /* padding-bottom: clamp(40px, 2.73vw + 29.09px, 64px); */
+    /* border-bottom: 1px solid var(--color-border); */
 }
 
 .gh-archive.has-image .gh-archive-inner {
@@ -2525,7 +2527,7 @@ figcaption a {
 }
 
 .gh-archive:not(.has-sidebar):not(.has-image) .gh-archive-inner {
-    grid-column: 3 / span 12;
+    grid-column: 2 / span 14;
 }
 
 .gh-archive .gh-article-image {
@@ -2552,9 +2554,9 @@ figcaption a {
     object-fit: cover;
 }
 
-.author-template .gh-article-title {
-    font-size: 3.6rem;
-}
+/* .author-template .gh-article-title { */
+/*     font-size: 3.6rem; */
+/* } */
 
 .gh-author-meta {
     display: flex;
@@ -2775,7 +2777,7 @@ figcaption a {
     position: relative;
     font-family: var(--gh-font-heading, var(--font-sans));
     font-size: calc(2.4rem * var(--factor, 1));
-    font-weight: 725;
+    font-weight: 400;
     letter-spacing: -0.015em;
     white-space: nowrap;
 }
@@ -2795,6 +2797,7 @@ figcaption a {
 }
 
 .gh-footer-copyright {
+    grid-column: 3;
     text-align: right;
     white-space: nowrap;
 }
