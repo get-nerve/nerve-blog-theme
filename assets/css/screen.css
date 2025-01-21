@@ -549,7 +549,7 @@ button.gh-form-input {
 }
 
 .gh-search {
-    margin-right: -2px;
+    margin-right: 16px;
     margin-left: -2px;
 }
 
@@ -849,7 +849,7 @@ Search                         LOGO                    Login Subscribe
     }
 
     #gh-navigation .nav a {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: 600;
         text-transform: none;
     }
